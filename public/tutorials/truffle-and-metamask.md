@@ -1,7 +1,7 @@
 # Truffle and Metamask
 
-<p class="alert alert-warning" style="margin-top: -2rem; margin-bottom: 3rem;">
-  <strong>NOTICE</strong>: For the most up to date information on using Truffle with MetaMask, <a href="/docs/advanced/truffle-with-metamask">check out our documentation</a>.
+<p class="alert alert-info">
+**Update**: Since this tutorial was published, we have released [Ganache](/ganache) a personal blockchain and a replacement to the TestRPC. We have left this tutorial unaltered, but for the most up-to-date information on using Truffle with Metamask, we highly recommend checking out [our documentation](/docs/advanced/truffle-with-metamask).
 </p>
 
 This article was originally written by Dan Finlay and published as a [github gist](https://gist.github.com/flyswatter/aea93752fb90322bbe11). Dan has kindly allowed us to republish it here!
@@ -55,7 +55,7 @@ truffle build   # Compile the dapp
 truffle migrate  # Publish the dapp on the blockchain
 truffle serve   # Host your web interface on port 8080
 ```
-We just deployed a simple alt-coin called `MetaCoin` to our local blockchain, and it's available to our browser on `http://localhost:8080`!
+We just deployed a simple alt-coin called `MetaCoin` to our local blockchain, and it's available to our browser on `http://127.0.0.1:8080`!
 
 ![MetaCoin default](http://i.imgur.com/Uou5raY.png)
 
@@ -81,7 +81,7 @@ To use Metamask with your local development blockchain, you need to point it at 
 
   1. Open Metamask
   2. Click the gear icon in the bottom left
-  3. Enter your `testrpc` address into the RPC field. It's probably `http://localhost:8545/`.
+  3. Enter your `testrpc` address into the RPC field. It's probably `http://127.0.0.1:8545/`.
 
 Metamask will close at this point to restart itself.
 
@@ -123,7 +123,7 @@ Here's a simple shell command to tell your `testrpc` to send 1 ether to your Met
 `1e18` is equal to 1 ether, which will be more than enough for our purposes.
 
 ```
-curl -d '{"jsonrpc":"2.0","method":"eth_sendTransaction","params": [{"from":"0x0f91747e3a5df28d81ab30b2d8216c93263c0cf3", "to":"0xbbd220f66e989a493c4d48531ea1e283abc385de", "value": 1e18}], "id":1}' -X POST http://localhost:8545/
+curl -d '{"jsonrpc":"2.0","method":"eth_sendTransaction","params": [{"from":"0x0f91747e3a5df28d81ab30b2d8216c93263c0cf3", "to":"0xbbd220f66e989a493c4d48531ea1e283abc385de", "value": 1e18}], "id":1}' -X POST http://127.0.0.1:8545/
 ```
 
 ### Synchronizing Accounts Between Metamask And Testrpc

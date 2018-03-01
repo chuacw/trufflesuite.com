@@ -1,4 +1,6 @@
-# Location
+# Configuration
+
+## Location
 
 Your configuration file is called `truffle.js` and is located at the root of your project directory. This file is a Javascript file and can execute any code necessary to create your configuration. It must export an object representing your project configuration like the example below.
 
@@ -6,7 +8,7 @@ Your configuration file is called `truffle.js` and is located at the root of you
 module.exports = {
   networks: {
     development: {
-      host: "localhost",
+      host: "127.0.0.1",
       port: 8545,
       network_id: "*" // Match any network id
     }
@@ -14,10 +16,10 @@ module.exports = {
 };
 ```
 
-The default configuration ships with configuration for a single development network, running on `localhost:8545`. There are many other configuration options, detailed below.
+The default configuration ships with configuration for a single development network, running on `127.0.0.1:8545`. There are many other configuration options, detailed below.
 
 
-## Resolving naming conflicts on Windows
+### Resolving naming conflicts on Windows
 
 When using the Command Prompt on Windows, the default configuration file name can cause a conflict with the `truffle` executable, and so **you may not be able to run Truffle commands properly on existing projects**.
 
@@ -31,7 +33,7 @@ Any of the following solutions will remedy this issue:
 * Use [Windows PowerShell](https://docs.microsoft.com/en-us/powershell/) or [Git BASH](https://git-for-windows.github.io/), as these shells do not have this conflict.
 
 
-# General Options
+## General options
 
 ### build
 
@@ -54,7 +56,7 @@ Example:
 ```javascript
 networks: {
   development: {
-    host: "localhost",
+    host: "127.0.0.1",
     port: 8545,
     network_id: "*" // match any network
   },
@@ -67,6 +69,7 @@ networks: {
     // gasPrice
     // from - default address to use for any transaction Truffle makes during migrations
     // provider - web3 provider instance Truffle should use to talk to the Ethereum network.
+    //          - function that returns a web3 provider instance (see below.)
     //          - if specified, host and port are ignored.
   }
 }
@@ -81,7 +84,7 @@ For each network, if unspecified, transaction options will default to the follow
 
 For each network, you can specify either `host` / `port` or `provider`, but not both. If you need an HTTP provider, we recommend using `host` and `port`, while if you need a custom provider such as `HDWalletProvider`, you must use `provider`.
 
-#### Accessing only one of multiple network providers
+#### Managing multiple providers
 
 As seen above, your `truffle.js` file can contain multiple network configurations, but in general you will only work with a single network at a time. While you can issue a command to migrate to a single network (`truffle migrate --network live`), a minimal network connection will nevertheless be opened to every network defined with a `provider`.
 
@@ -96,7 +99,7 @@ networks: {
     network_id: '3',
   },
   test: {
-    provider: new HDWalletProvider(mnemonic, "http://localhost:8545/"),
+    provider: new HDWalletProvider(mnemonic, "http://127.0.0.1:8545/"),
     network_id: '*',
   },
 }
@@ -114,7 +117,7 @@ networks: {
   },
   test: {
     provider: function() {
-      return new HDWalletProvider(mnemonic, "http://localhost:8545/");
+      return new HDWalletProvider(mnemonic, "http://127.0.0.1:8545/");
     },
     network_id: '*',
   },
@@ -136,7 +139,7 @@ module.exports = {
   contracts_build_directory: "./output",
   networks: {
     development: {
-      host: "localhost",
+      host: "127.0.0.1",
       port: 8545,
       network_id: "*",
     }
@@ -151,7 +154,7 @@ module.exports = {
   contracts_build_directory: "../../../output",
   networks: {
     development: {
-      host: "localhost",
+      host: "127.0.0.1",
       port: 8545,
       network_id: "*",
     }
@@ -173,7 +176,7 @@ mocha: {
 }
 ```
 
-# Solidity Compiler Configuration
+## Solidity compiler configuration
 
 Solidity compiler settings. Supports optimizer settings for `solc`.
 
@@ -195,7 +198,7 @@ solc: {
 For more information, please see the Solidity documentation on [Compiler Input and Output JSON Description](http://solidity.readthedocs.io/en/develop/using-the-compiler.html#compiler-input-and-output-json-description).
 
 
-# EthPM Configuration
+## EthPM configuration
 
 This configuration applies to the optional `ethpm.json` file that exists alongside your `truffle.js` configuration file.
 

@@ -5,6 +5,9 @@
     "title": "Truffle Boxes"
   },
   "boxes": {
+    "drizzle": {
+      "title": "drizzle"
+    },
     "react": {
       "title": "react"
     },
@@ -35,11 +38,20 @@
     "angular-truffle-box": {
       "title": "angular-truffle-box"
     },
+    "ens-bid-truffle-box": {
+      "title": "ens-bid-truffle-box"
+    },
     "eth-vue": {
       "title": "eth-vue"
     },
     "limelabs-angular-box": {
       "title": "limelabs-angular-box"
+    },
+    "peerai-api": {
+      "title": "peerai-api"
+    },
+    "react-box-web3-todo": {
+      "title": "react-box-web3-todo"
     },
     "react-dapp-material-ui": {
       "title": "react-dapp-material-ui"
@@ -50,8 +62,17 @@
     "svelte-box": {
       "title": "svelte-box"
     },
+    "truffle-create-react-app": {
+      "title": "truffle-create-react-app"
+    },
     "truffle-next": {
       "title": "truffle-next"
+    },
+    "truffle-react-ts-template": {
+      "title": "truffle-react-ts-template"
+    },
+    "truffle-security": {
+      "title": "truffle-security"
     },
     "truffle-vue": {
       "title": "truffle-vue"
